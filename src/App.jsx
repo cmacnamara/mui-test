@@ -23,6 +23,10 @@ function App() {
     location: '',
   })
 
+  const handleChange = event => {
+    setFormData({ ...formData, [event.target.name]: event.target.value })
+  }
+
   return (
     <div className='App'>
       <Box>
@@ -33,24 +37,28 @@ function App() {
               name='firstName'
               label='First Name'
               value={formData.firstName}
+              onChange={handleChange}
             />
             <TextField 
               type='text'
               name='lastName'
               label='Last Name'
               value={formData.lastName}
+              onChange={handleChange}
             />
             <TextField 
               type='text'
               name='email'
               label='Email'
               value={formData.email}
+              onChange={handleChange}
             />
             <TextField 
               type='text'
               name='location'
               label='Location'
               value={formData.location}
+              onChange={handleChange}
             />
             <Button type="submit"> Submit </Button>
           </form>
