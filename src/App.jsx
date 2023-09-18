@@ -1,17 +1,11 @@
+// npm packages
 import { useState, useEffect } from 'react'
-import Box from '@mui/material/Box'
-import Button from '@mui/material/Button'
-import Paper from '@mui/material/Paper'
-import TextField from '@mui/material/TextField'
-import List from '@mui/material/List'
-import ListItem from '@mui/material/ListItem'
-import ListItemText from '@mui/material/ListItemText'
-import Divider from '@mui/material/Divider'
-import PersonIcon from '@mui/icons-material/Person'
-import LocationOnIcon from '@mui/icons-material/LocationOn'
-import EmailIcon from '@mui/icons-material/Email'
-import ListItemIcon from '@mui/material/ListItemIcon'
 
+// Components
+import Form from './Components/Form'
+import Display from './Components/Display'
+
+// CSS
 import './App.css'
 
 function App() {
@@ -45,104 +39,12 @@ function App() {
 
   return (
     <div className='App'>
-      <Box
-        display="flex"
-        justifyContent="center"
-        alignItems="center"
-        sx={{ width: '50%' }}
-      >
-        <Paper sx={{ width: '100%' }}>
-          <List>
-            <ListItem>
-              <ListItemIcon>
-                <PersonIcon />
-              </ListItemIcon>
-              <ListItemText
-                primary={`${display.firstName} ${display.lastName}`} 
-                secondary="Name"
-              />
-            </ListItem>
-            <Divider />
-            <ListItem>
-            <ListItemIcon>
-                <EmailIcon />
-              </ListItemIcon>
-              <ListItemText
-                primary={`${display.email}`} 
-                secondary="Email"
-              />
-            </ListItem>
-            <Divider />
-            <ListItem>
-              <ListItemIcon>
-                <LocationOnIcon />
-              </ListItemIcon>
-              <ListItemText
-                primary={`${display.location}`} 
-                secondary="Location"
-              />
-            </ListItem>
-          </List>
-        </Paper>
-      </Box>
-      <Box
-        display="flex"
-        justifyContent="center"
-        alignItems="center"
-        sx={{ width: '50%', mt: '2rem' }}
-      >
-        <Paper elevation={4} sx={{ width: "100%", p: "1rem" }}>
-          <form onSubmit={handleSubmit}>
-            <TextField 
-              type='text'
-              name='firstName'
-              label='First Name'
-              value={formData.firstName}
-              onChange={handleChange}
-              autoComplete='off'
-              margin='normal'
-              fullWidth
-              required
-            />
-            <TextField 
-              type='text'
-              name='lastName'
-              label='Last Name'
-              value={formData.lastName}
-              onChange={handleChange}
-              autoComplete='off'
-              margin='normal'
-              fullWidth
-              required
-            />
-            <TextField 
-              type='text'
-              name='email'
-              label='Email'
-              value={formData.email}
-              onChange={handleChange}
-              autoComplete='off'
-              margin='normal'
-              fullWidth
-              required
-            />
-            <TextField 
-              type='text'
-              name='location'
-              label='Location'
-              value={formData.location}
-              onChange={handleChange}
-              autoComplete='off'
-              margin='normal'
-              fullWidth
-              required
-            />
-            <Button type="submit" variant='contained' fullWidth>
-              Submit 
-            </Button>
-          </form>
-        </Paper>
-      </Box>
+      <Display display={display} />
+      <Form 
+        handleSubmit={handleSubmit}
+        handleChange={handleChange}
+        formData={formData}
+      />
     </div>
   )
 }
