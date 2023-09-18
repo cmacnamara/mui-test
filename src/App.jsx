@@ -17,18 +17,7 @@ function App() {
     location: 'Seattle',
   })
 
-  const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
-    email: '',
-    location: '',
-  })
-
-  const handleChange = event => {
-    setFormData({ ...formData, [event.target.name]: event.target.value })
-  }
-
-  const handleSubmit = event => {
+  const handleSubmit = (event, formData) => {
     event.preventDefault()
     setDisplay(formData)
   }
@@ -40,11 +29,7 @@ function App() {
   return (
     <div className='App'>
       <Display display={display} />
-      <Form 
-        handleSubmit={handleSubmit}
-        handleChange={handleChange}
-        formData={formData}
-      />
+      <Form handleSubmit={handleSubmit} />
     </div>
   )
 }
