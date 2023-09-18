@@ -41,8 +41,13 @@ function App() {
 
   return (
     <div className='App'>
-      <Box>
-        <Paper>
+      <Box
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
+        sx={{ width: '50%' }}
+      >
+        <Paper sx={{ width: '100%' }}>
           <List>
             <ListItem>
               <ListItemText
@@ -67,8 +72,13 @@ function App() {
           </List>
         </Paper>
       </Box>
-      <Box>
-        <Paper>
+      <Box
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
+        sx={{ width: '50%' }}
+      >
+        <Paper elevation={4} sx={{ width: "100%", p: "1rem" }}>
           <form onSubmit={handleSubmit}>
             <TextField 
               type='text'
@@ -76,6 +86,10 @@ function App() {
               label='First Name'
               value={formData.firstName}
               onChange={handleChange}
+              autoComplete='off'
+              margin='normal'
+              fullWidth
+              required
             />
             <TextField 
               type='text'
@@ -83,6 +97,10 @@ function App() {
               label='Last Name'
               value={formData.lastName}
               onChange={handleChange}
+              autoComplete='off'
+              margin='normal'
+              fullWidth
+              required
             />
             <TextField 
               type='text'
@@ -90,6 +108,10 @@ function App() {
               label='Email'
               value={formData.email}
               onChange={handleChange}
+              autoComplete='off'
+              margin='normal'
+              fullWidth
+              required
             />
             <TextField 
               type='text'
@@ -97,8 +119,14 @@ function App() {
               label='Location'
               value={formData.location}
               onChange={handleChange}
+              autoComplete='off'
+              margin='normal'
+              fullWidth
+              required
             />
-            <Button type="submit"> Submit </Button>
+            <Button type="submit" variant='contained' fullWidth>
+              Submit 
+            </Button>
           </form>
         </Paper>
       </Box>
